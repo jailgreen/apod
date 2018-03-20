@@ -1,0 +1,8 @@
+<#if licenseFirst??>
+${licenseFirst}
+</#if>
+${licensePrefix}@license    https://opensource.org/licenses/BSD-3-Clause New BSD License
+${licensePrefix}@Copyright  (c) 2017-${date?date?string("yyyy")}, ${organization!user}
+<#if licenseLast??>
+${licenseLast}
+</#if>
