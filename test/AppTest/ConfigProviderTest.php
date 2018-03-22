@@ -1,5 +1,5 @@
 <?php
-/*
+/**
  * @license    https://opensource.org/licenses/BSD-3-Clause New BSD License
  * @Copyright  (c) 2017-2018, jailgreen <36865973+jailgreen@users.noreply.github.com>
  */
@@ -35,6 +35,7 @@ class ConfigProviderTest extends TestCase
         $this->assertInternalType('array', $config);
         $this->assertArrayHasKey('dependencies', $config);
         $this->assertArrayHasKey('factories', $config['dependencies']);
+        $this->assertCount(0, $config['dependencies']['factories']);
 
         $this->assertArrayHasKey('templates', $config);
         $this->assertArrayHasKey('app', $config['templates']['paths']);

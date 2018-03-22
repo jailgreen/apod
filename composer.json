@@ -1,6 +1,6 @@
 {
     "name": "jailgreen/apod",
-    "description": "an app that uses the Astronomy Picture of the Day API provided by NASA and the Zend Expressive framework.",
+    "description": "An app that uses the Astronomy Picture of the Day API provided by NASA and the Zend Expressive 3.",
     "type": "webpage",
     "homepage": "https://github.com/jailgreen/apod",
     "license": "BSD-3-Clause",
@@ -9,18 +9,20 @@
     },
     "require": {
         "php": "^7.1",
+        "andrewcarteruk/astronomy-picture-of-the-day": "^0.1.0",
         "zendframework/zend-component-installer": "^2.1",
         "zendframework/zend-config-aggregator": "^1.0",
         "zendframework/zend-diactoros": "^1.7.1",
         "zendframework/zend-expressive": "^3.0",
-        "zendframework/zend-expressive-helpers": "^5.0",
-        "zendframework/zend-stdlib": "^3.1",
-        "zendframework/zend-servicemanager": "^3.3",
         "zendframework/zend-expressive-fastroute": "^3.0",
-        "zendframework/zend-expressive-platesrenderer": "^2.0"
+        "zendframework/zend-expressive-helpers": "^5.0",
+        "zendframework/zend-expressive-platesrenderer": "^2.0",
+        "zendframework/zend-servicemanager": "^3.3",
+        "zendframework/zend-stdlib": "^3.1"
     },
     "require-dev": {
         "filp/whoops": "^2.1.12",
+        "jangregor/phpstan-prophecy": "^0.1.1",
         "malukenho/docheader": "^0.1.7",
         "phpstan/phpstan": "^0.9.2",
         "phpstan/phpstan-strict-rules": "^0.9.0",
