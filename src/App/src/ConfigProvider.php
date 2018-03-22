@@ -37,6 +37,7 @@ class ConfigProvider
     {
         return [
             'factories'  => [
+                Middleware\HomePageMiddleware::class => Middleware\HomePageMiddlewareFactory::class,
             ],
         ];
     }

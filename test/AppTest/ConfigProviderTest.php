@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace ApodTest;
 
 use JGreen\Apod\ConfigProvider;
+use JGreen\Apod\Middleware;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -28,6 +29,24 @@ class ConfigProviderTest extends TestCase
         $this->provider = new ConfigProvider();
     }
 
+    public function testProviderDefinesExpectedFactoryServices()
+    {
+        $config = $this->provider->getDependencies();
+        $factories = $config['factories'];
+
+        $this->assertArrayHasKey(Middleware\HomePageMiddleware::class, $factories);
+    }
+
+    public function testProviderDefinesExpectedTemplates()
+    {
+        $config = $this->provider->getTemplates();
+        $templates = $config['paths'];
+
+        $this->assertArrayHasKey('app', $templates);
+        $this->assertArrayHasKey('error', $templates);
+        $this->assertArrayHasKey('layout', $templates);
+    }
+
     public function testInvocationReturnsArrayWithDependencies(): void
     {
         $config = ($this->provider)();
@@ -35,11 +54,9 @@ class ConfigProviderTest extends TestCase
         $this->assertInternalType('array', $config);
         $this->assertArrayHasKey('dependencies', $config);
         $this->assertArrayHasKey('factories', $config['dependencies']);
-        $this->assertCount(0, $config['dependencies']['factories']);
+
+        $this->assertCount(1, $config['dependencies']['factories']);
 
         $this->assertArrayHasKey('templates', $config);
-        $this->assertArrayHasKey('app', $config['templates']['paths']);
-        $this->assertArrayHasKey('error', $config['templates']['paths']);
-        $this->assertArrayHasKey('layout', $config['templates']['paths']);
     }
 }
