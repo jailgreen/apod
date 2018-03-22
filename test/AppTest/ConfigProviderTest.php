@@ -6,9 +6,9 @@
 
 declare(strict_types=1);
 
-namespace AppTest;
+namespace ApodTest;
 
-use App\ConfigProvider;
+use JGreen\Apod\ConfigProvider;
 use PHPUnit\Framework\TestCase;
 
 /**
