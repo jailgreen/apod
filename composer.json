@@ -60,7 +60,7 @@
         "clear-config-cache": "php bin/clear-config-cache.php",
         "cs-check": "phpcs",
         "cs-fix": "phpcbf",
-        "phpstan": "phpstan analyze -l max -c phpstan.neon ./config ./src ./test",
+        "phpstan": "phpstan analyze -l max -c phpstan.neon ./bin ./config ./src ./test",
         "test": "phpunit --colors=always",
         "license-check": "docheader check config/ src/ test/"
     }

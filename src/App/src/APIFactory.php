@@ -23,12 +23,13 @@ class APIFactory
 {
     public function __invoke(ContainerInterface $container): APIInterface
     {
-        $config = $container->get('application');
+        //$config = $container->get('application');
+        $config = $container->get('config');
 
-        if (!isset($config['apod_api'])) {
+        if (!isset($config['application']['apod_api'])) {
             throw new ServiceNotCreatedException('apod_api must be set in application configuration');
         }
 
-        return new API(new Client(), $config['apod_api']);
+        return new API(new Client(), $config['application']['apod_api']);
     }
 }
