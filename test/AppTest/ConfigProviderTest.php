@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace ApodTest;
 
 use JGreen\Apod\ConfigProvider;
+use JGreen\Apod\Handler;
 use JGreen\Apod\Middleware;
 use PHPUnit\Framework\TestCase;
 
@@ -34,6 +35,7 @@ class ConfigProviderTest extends TestCase
         $config = $this->provider->getDependencies();
         $factories = $config['factories'];
 
+        $this->assertArrayHasKey(Handler\PictureListHandler::class, $factories);
         $this->assertArrayHasKey(Middleware\HomePageMiddleware::class, $factories);
         $this->assertArrayHasKey(\AndrewCarterUK\APOD\APIInterface::class, $factories);
     }
@@ -65,7 +67,7 @@ class ConfigProviderTest extends TestCase
         $this->assertArrayHasKey('dependencies', $config);
         $this->assertArrayHasKey('factories', $config['dependencies']);
 
-        $this->assertCount(2, $config['dependencies']['factories']);
+        $this->assertCount(3, $config['dependencies']['factories']);
 
         $this->assertArrayHasKey('templates', $config);
         $this->assertArrayHasKey('application', $config);
