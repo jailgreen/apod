@@ -8,22 +8,29 @@ declare(strict_types=1);
 
 namespace JGreen\Apod\Handler;
 
+use AndrewCarterUK\APOD\APIInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use Zend\Diactoros\Response\HtmlResponse;
-use Zend\Expressive\Template\TemplateRendererInterface;
+use Zend\Diactoros\Response\JsonResponse;
 
 class PictureListHandler implements RequestHandlerInterface
 {
     /**
-     * @var TemplateRendererInterface
+     * @var APIInterface
      */
-    private $renderer;
+    private $apodApi;
 
-    public function __construct(TemplateRendererInterface $renderer)
+    /**
+     * @var int
+     */
+    private $resultsPerPage;
+
+    public function __construct(APIInterface $apodApi, int $resultsPerPage)
     {
-        $this->renderer = $renderer;
+        $this->apodApi        = $apodApi;
+        $this->resultsPerPage = $resultsPerPage;
     }
 
     /**
@@ -31,11 +38,11 @@ class PictureListHandler implements RequestHandlerInterface
      */
     public function handle(ServerRequestInterface $request) : ResponseInterface
     {
+        $page     = intval($request->getAttribute('page') ?: 0);
+        $pictures = $this->apodApi->getPage($page, $this->resultsPerPage);
         // Do some work...
         // Render and return a response:
-        return new HtmlResponse($this->renderer->render(
-            'j-green::picture-list',
-            [] // parameters to pass to template
-        ));
+        return new JsonResponse($pictures);
+        //return new JsonResponse($pictures);
     }
 }
