@@ -29,15 +29,16 @@ class ConfigProviderTest extends TestCase
         $this->provider = new ConfigProvider();
     }
 
-    public function testProviderDefinesExpectedFactoryServices()
+    public function testProviderDefinesExpectedFactoryServices(): void
     {
         $config = $this->provider->getDependencies();
         $factories = $config['factories'];
 
         $this->assertArrayHasKey(Middleware\HomePageMiddleware::class, $factories);
+        $this->assertArrayHasKey(\AndrewCarterUK\APOD\APIInterface::class, $factories);
     }
 
-    public function testProviderDefinesExpectedTemplates()
+    public function testProviderDefinesExpectedTemplates(): void
     {
         $config = $this->provider->getTemplates();
         $templates = $config['paths'];
@@ -45,6 +46,15 @@ class ConfigProviderTest extends TestCase
         $this->assertArrayHasKey('app', $templates);
         $this->assertArrayHasKey('error', $templates);
         $this->assertArrayHasKey('layout', $templates);
+    }
+
+    public function testProviderDefinesApplicationParameters(): void
+    {
+        $config = $this->provider->getApplicationParams();
+        $params = $config['apod_api'];
+
+        $this->assertArrayHasKey('base_url', $params);
+        $this->assertArrayHasKey('store_path', $params);
     }
 
     public function testInvocationReturnsArrayWithDependencies(): void
@@ -55,8 +65,9 @@ class ConfigProviderTest extends TestCase
         $this->assertArrayHasKey('dependencies', $config);
         $this->assertArrayHasKey('factories', $config['dependencies']);
 
-        $this->assertCount(1, $config['dependencies']['factories']);
+        $this->assertCount(2, $config['dependencies']['factories']);
 
         $this->assertArrayHasKey('templates', $config);
+        $this->assertArrayHasKey('application', $config);
     }
 }

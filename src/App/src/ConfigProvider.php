@@ -27,6 +27,7 @@ class ConfigProvider
         return [
             'dependencies' => $this->getDependencies(),
             'templates'    => $this->getTemplates(),
+            'application'  => $this->getApplicationParams(),
         ];
     }
 
@@ -37,7 +38,8 @@ class ConfigProvider
     {
         return [
             'factories'  => [
-                Middleware\HomePageMiddleware::class => Middleware\HomePageMiddlewareFactory::class,
+                Middleware\HomePageMiddleware::class     => Middleware\HomePageMiddlewareFactory::class,
+                \AndrewCarterUK\APOD\APIInterface::class => APIFactory::class,
             ],
         ];
     }
@@ -52,6 +54,22 @@ class ConfigProvider
                 'app'    => ['templates/app'],
                 'error'  => ['templates/error'],
                 'layout' => ['templates/layout'],
+            ],
+        ];
+    }
+
+    /**
+     * Returns application configuration parameters.
+     * @return array
+     */
+    public function getApplicationParams() : array
+    {
+        return [
+            'results_per_page' => 24,
+            'apod_api' => [
+                'store_path' => 'public/apod',
+                'base_url'   => '/apod',
+                'api_key'    => 'KwJrvP1slfzelmGFJNnVfh2NVF9SuwhDTXPxYx8a',
             ],
         ];
     }
