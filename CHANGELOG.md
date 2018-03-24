@@ -2,11 +2,33 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
-## 0.2.0 - TBD
+## 0.3.0 - TBD
 
 ### Added
 
 - Nothing.
+
+### Changed
+
+- Nothing.
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- Nothing.
+
+### Fixed
+
+- Nothing.
+
+## 0.2.0-dev - 2018-03-24
+
+### Added
+
+- AndrewCarter Apod API.
 
 ### Changed
 
