@@ -24,6 +24,27 @@ All notable changes to this project will be documented in this file, in reverse 
 
 - Nothing.
 
+## 0.3.1-dev - 2018-03-25
+
+### Added
+
+- Nothing.
+
+### Changed
+
+- Templates.
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- Nothing.
+
+### Fixed
+
+- Nothing.
 
 ## 0.3.0-dev - 2018-03-24
 

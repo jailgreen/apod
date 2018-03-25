@@ -1,6 +1,6 @@
-<?php $this->layout('layout::default', ['title' => 'AstroSplash: Astronomy Picture of the Day']) ?>
+<?php $this->layout('layout::default', ['title' => 'Innoo: Astronomy Picture of the Day']) ?>
 
-<h1 class="text-center">AstroSplash</h1>
+<h1 class="text-center">Astronomy Picture of the Day</h1>
 <p class="text-center">Images courtesy of <a style="color: #75B9ff;" href="http://apod.nasa.gov/apod/astropix.html">NASA</a></p>
 
 <div id="gallery" class="row"></div>
@@ -36,8 +36,8 @@
 <?php $this->stop() ?>
 
 <?php $this->start('javascript') ?>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script type="text/javascript">
         var requestInProgress = false;
         var currentPage = 0;
