@@ -11,6 +11,7 @@
 
         <title><?=$this->e($title)?></title>
 
+        <?=$this->section('javascript')?>
         <?=$this->section('css')?>
 
     </head>
@@ -19,5 +20,5 @@
             <?=$this->section('content')?>
         </div>
     </body>
-    <?=$this->section('javascript')?>
+    
 </html>
