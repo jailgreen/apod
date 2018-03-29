@@ -24,6 +24,28 @@ All notable changes to this project will be documented in this file, in reverse 
 
 - Nothing.
 
+## 0.4.0-beta1 - 2018-03-29
+
+### Added
+
+- Nothing.
+
+### Changed
+
+- Nothing.
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- Nothing.
+
+### Fixed
+
+- Templates to work with Bootstrap 4.0.
+
 ## 0.3.1-dev - 2018-03-25
 
 ### Added
