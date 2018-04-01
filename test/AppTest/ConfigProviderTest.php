@@ -36,7 +36,7 @@ class ConfigProviderTest extends TestCase
         $factories = $config['factories'];
 
         $this->assertArrayHasKey(Handler\PictureListHandler::class, $factories);
-        $this->assertArrayHasKey(Middleware\HomePageMiddleware::class, $factories);
+        $this->assertArrayHasKey(Handler\HomePageHandler::class, $factories);
         $this->assertArrayHasKey(\AndrewCarterUK\APOD\APIInterface::class, $factories);
     }
 

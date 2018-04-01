@@ -38,7 +38,7 @@ class ConfigProvider
     {
         return [
             'factories'  => [
-                Middleware\HomePageMiddleware::class     => Middleware\HomePageMiddlewareFactory::class,
+                Handler\HomePageHandler::class => Handler\HomePageHandlerFactory::class,
                 Handler\PictureListHandler::class => Handler\PictureListHandlerFactory::class,
                 \AndrewCarterUK\APOD\APIInterface::class => APIFactory::class,
             ],

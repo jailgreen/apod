@@ -6,16 +6,15 @@
 
 declare(strict_types=1);
 
-namespace App\Middleware;
+namespace App\Handler;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use Zend\Diactoros\Response\HtmlResponse;
 use Zend\Expressive\Template\TemplateRendererInterface;
 
-class HomePageMiddleware implements MiddlewareInterface
+class HomePageHandler implements RequestHandlerInterface
 {
     /**
      * @var TemplateRendererInterface
@@ -30,11 +29,13 @@ class HomePageMiddleware implements MiddlewareInterface
     /**
      * {@inheritDoc}
      */
-    public function process(ServerRequestInterface $request, RequestHandlerInterface $handler) : ResponseInterface
+    public function handle(ServerRequestInterface $request) : ResponseInterface
     {
-        // $response = $handler->handle($request);
-        $html = $this->renderer->render('app::home');
-        $response = new HtmlResponse($html);
-        return $response;
+        // Do some work...
+        // Render and return a response:
+        return new HtmlResponse($this->renderer->render(
+            'app::home',
+            [] // parameters to pass to template
+        ));
     }
 }

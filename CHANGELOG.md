@@ -24,6 +24,29 @@ All notable changes to this project will be documented in this file, in reverse 
 
 - Nothing.
 
+## 0.4.0-RC1 - 2018-04-01
+
+### Added
+
+- Nothing.
+
+### Changed
+
+- Namespace to App.
+- Middleware to Handler.
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- Nothing.
+
+### Fixed
+
+- Nothing.
+
 ## 0.4.0-beta1 - 2018-03-29
 
 ### Added
