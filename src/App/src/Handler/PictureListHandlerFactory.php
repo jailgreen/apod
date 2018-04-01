@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace JGreen\Apod\Handler;
+namespace App\Handler;
 
 use AndrewCarterUK\APOD\APIInterface;
 use Psr\Container\ContainerInterface;

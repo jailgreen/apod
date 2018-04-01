@@ -6,10 +6,10 @@
 
 declare(strict_types=1);
 
-namespace ApodTest;
+namespace AppTest;
 
 use AndrewCarterUK\APOD\API;
-use JGreen\Apod\APIFactory;
+use App\APIFactory;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
 use Psr\Container\ContainerInterface;
@@ -27,9 +27,9 @@ class APIFactoryTest extends TestCase
         $factory = new APIFactory();
         $container = $this->prophesize(ContainerInterface::class);
 
-        $container->get('application')
+        $container->get('config')
                 ->shouldBeCalled()
-                ->willReturn(['apod_api' => ['store_path' => '/', 'base_url' => '/']]);
+                ->willReturn(['application' => ['apod_api' => ['store_path' => '/', 'base_url' => '/']]]);
 
         $api = $factory($container->reveal());
         $this->assertInstanceOf(API::class, $api);
@@ -40,7 +40,7 @@ class APIFactoryTest extends TestCase
         $factory = new APIFactory();
         $container = $this->prophesize(ContainerInterface::class);
 
-        $container->get('application')
+        $container->get('config')
                 ->shouldBeCalled()
                 ->willReturn([]);
 

@@ -6,15 +6,13 @@
 
 declare(strict_types=1);
 
-namespace ApodTest\Middleware;
+namespace AppTest\Handler;
 
-use JGreen\Apod\Middleware\HomePageMiddleware;
-use JGreen\Apod\Middleware\HomePageMiddlewareFactory;
+use App\Handler\HomePageHandler;
+use App\Handler\HomePageHandlerFactory;
 use PHPUnit\Framework\TestCase;
-use Prophecy\Argument;
-use Prophecy\Prophecy\ObjectProphecy;
 use Psr\Container\ContainerInterface;
-use Psr\Http\Server\MiddlewareInterface;
+use Psr\Http\Server\RequestHandlerInterface;
 use Zend\Expressive\Template\TemplateRendererInterface;
 
 /**
@@ -22,11 +20,11 @@ use Zend\Expressive\Template\TemplateRendererInterface;
  *
  * @author jailgreen <36865973+jailgreen@users.noreply.github.com>
  */
-class HomePageMiddlewareFactoryTest extends TestCase
+class HomePageHandlerFactoryTest extends TestCase
 {
     public function testFactory()
     {
-        $factory   = new HomePageMiddlewareFactory();
+        $factory   = new HomePageHandlerFactory();
         $container = $this->prophesize(ContainerInterface::class);
 
         $container
@@ -36,7 +34,7 @@ class HomePageMiddlewareFactoryTest extends TestCase
 
         $page = $factory($container->reveal());
 
-        $this->assertInstanceOf(HomePageMiddleware::class, $page);
-        $this->assertInstanceOf(MiddlewareInterface::class, $page);
+        $this->assertInstanceOf(HomePageHandler::class, $page);
+        $this->assertInstanceOf(RequestHandlerInterface::class, $page);
     }
 }

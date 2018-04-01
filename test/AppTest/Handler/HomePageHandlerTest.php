@@ -6,14 +6,14 @@
 
 declare(strict_types=1);
 
-namespace ApodTest\Middleware;
+namespace AppTest\Handler;
 
-use JGreen\Apod\Middleware\HomePageMiddleware;
+use App\Handler\HomePageHandler;
 use PHPUnit\Framework\TestCase;
+use Prophecy\Argument;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use Zend\Diactoros\Response;
-use Zend\Diactoros\ServerRequest;
 use Zend\Expressive\Template\TemplateRendererInterface;
 
 /**
@@ -21,20 +21,20 @@ use Zend\Expressive\Template\TemplateRendererInterface;
  *
  * @author jailgreen <36865973+jailgreen@users.noreply.github.com>
  */
-class HomePageMiddlewareTest extends TestCase
+class HomePageHandlerTest extends TestCase
 {
     public function testResponseRendersCorrectPage()
     {
         $renderer = $this->prophesize(TemplateRendererInterface::class);
         $renderer
-                ->render('app::home')
+                ->render('app::home', Argument::type('array'))
                 ->shouldBeCalled()
                 ->willReturn('page-content');
         $request = $this->prophesize(ServerRequestInterface::class);
-        $handler = $this->prophesize(RequestHandlerInterface::class);
+        //$handler = $this->prophesize(RequestHandlerInterface::class);
 
-        $page = new HomePageMiddleware($renderer->reveal());
-        $response = $page->process($request->reveal(), $handler->reveal());
+        $page = new HomePageHandler($renderer->reveal());
+        $response = $page->handle($request->reveal());
 
         $this->assertInstanceOf(Response::class, $response);
         $this->assertEquals('page-content', $response->getBody());

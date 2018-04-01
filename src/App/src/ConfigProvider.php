@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace JGreen\Apod;
+namespace App;
 
 /**
  * The configuration provider for the App module
@@ -38,7 +38,7 @@ class ConfigProvider
     {
         return [
             'factories'  => [
-                Middleware\HomePageMiddleware::class     => Middleware\HomePageMiddlewareFactory::class,
+                Handler\HomePageHandler::class => Handler\HomePageHandlerFactory::class,
                 Handler\PictureListHandler::class => Handler\PictureListHandlerFactory::class,
                 \AndrewCarterUK\APOD\APIInterface::class => APIFactory::class,
             ],
