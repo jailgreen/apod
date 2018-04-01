@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace JGreen\Apod;
+namespace App;
 
 use AndrewCarterUK\APOD\API;
 use AndrewCarterUK\APOD\APIInterface;

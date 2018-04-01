@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace JGreen\Apod\Middleware;
+namespace App\Middleware;
 
 use Psr\Container\ContainerInterface;
 use Zend\Expressive\Template\TemplateRendererInterface;

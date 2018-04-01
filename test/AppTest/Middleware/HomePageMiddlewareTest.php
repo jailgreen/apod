@@ -6,9 +6,9 @@
 
 declare(strict_types=1);
 
-namespace ApodTest\Middleware;
+namespace AppTest\Middleware;
 
-use JGreen\Apod\Middleware\HomePageMiddleware;
+use App\Middleware\HomePageMiddleware;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;

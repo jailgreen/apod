@@ -6,11 +6,11 @@
 
 declare(strict_types=1);
 
-namespace ApodTest;
+namespace AppTest;
 
-use JGreen\Apod\ConfigProvider;
-use JGreen\Apod\Handler;
-use JGreen\Apod\Middleware;
+use App\ConfigProvider;
+use App\Handler;
+use App\Middleware;
 use PHPUnit\Framework\TestCase;
 
 /**

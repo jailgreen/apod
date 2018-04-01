@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace JGreen\Apod;
+namespace App;
 
 /**
  * The configuration provider for the App module

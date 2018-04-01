@@ -6,10 +6,10 @@
 
 declare(strict_types=1);
 
-namespace ApodTest\Middleware;
+namespace AppTest\Middleware;
 
-use JGreen\Apod\Middleware\HomePageMiddleware;
-use JGreen\Apod\Middleware\HomePageMiddlewareFactory;
+use App\Middleware\HomePageMiddleware;
+use App\Middleware\HomePageMiddlewareFactory;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
 use Prophecy\Prophecy\ObjectProphecy;
