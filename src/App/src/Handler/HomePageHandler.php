@@ -33,9 +33,11 @@ class HomePageHandler implements RequestHandlerInterface
     {
         // Do some work...
         // Render and return a response:
-        return new HtmlResponse($this->renderer->render(
+        $response = new HtmlResponse($this->renderer->render(
             'app::home',
             [] // parameters to pass to template
         ));
+
+        return $response->withHeader('Cache-Control', ['public', 'max-age=3600']);
     }
 }

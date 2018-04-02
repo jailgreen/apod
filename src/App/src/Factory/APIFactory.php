@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace App;
+namespace App\Factory;
 
 use AndrewCarterUK\APOD\API;
 use AndrewCarterUK\APOD\APIInterface;

@@ -19,6 +19,7 @@
             </div>
             <div class="modal-body">
                 <img id="modal-image" src="" alt="" class="img-fluid" />
+                <p id="modal-copy"></p>
             </div>
             <div class="modal-footer">
                 <p id="modal-caption"></p>
@@ -72,6 +73,7 @@
                             $('#' + date).click(function (event) {
                                 event.preventDefault();
                                 $('#modal-title').text(picture.title);
+                                if ("copyright" in picture) $('#modal-copy').text("Image Credits: " + picture.copyright);
                                 $('#modal-image').attr('src', picture.url);
                                 $('#modal-caption').text(picture.explanation);
                                 $('#modal').modal();

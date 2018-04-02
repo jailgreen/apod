@@ -24,6 +24,28 @@ All notable changes to this project will be documented in this file, in reverse 
 
 - Nothing.
 
+## 0.4.0-RC2
+
+### Added
+
+- Http-Cache.
+
+### Changed
+
+- Nothing.
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- Nothing.
+
+### Fixed
+
+- Nothing.
+
 ## 0.4.0-RC1 - 2018-04-01
 
 ### Added

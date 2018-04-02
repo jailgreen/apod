@@ -6,10 +6,10 @@
 
 declare(strict_types=1);
 
-namespace AppTest;
+namespace AppTest\Factory;
 
 use AndrewCarterUK\APOD\API;
-use App\APIFactory;
+use App\Factory\APIFactory;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
 use Psr\Container\ContainerInterface;
